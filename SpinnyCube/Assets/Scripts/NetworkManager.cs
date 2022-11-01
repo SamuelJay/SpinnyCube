@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] Transform spawnPoint;
+    
+    [SerializeField] private Transform spawnPoint;
+    
     private Vector3 diceOffset;
     private string roomName= "bathroom";
     private string dicePrefabPath = "dicePrefab";
@@ -14,6 +16,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         diceOffset = new Vector3(3,0,0);
+          
         PhotonNetwork.ConnectUsingSettings();
     }
     public override void OnConnectedToMaster()
