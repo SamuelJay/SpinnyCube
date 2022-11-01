@@ -28,8 +28,13 @@ public class DiceBehaviour : MonoBehaviourPun
             }
             photonView.RPC("ChangeMaterial", RpcTarget.AllBuffered, currentMaterialIndex);
         }
-        if (rotatingEnabled) transform.Rotate(eulerAngle * Time.deltaTime);
+        if (rotatingEnabled) Rotate();
     }
+    private void Rotate() 
+    {
+        transform.Rotate(eulerAngle * Time.deltaTime);
+    }
+
     [PunRPC]
     public void ChangeMaterial(int materialIndex)
     {
